@@ -50,7 +50,7 @@ const validateStudents = (strict) => (req, res, next) => {
 
   } catch (e) {
     console.log(e)
-    handleThrowHttpError(req, res, 500, "invalid request")
+    handleThrowHttpError(req, res, 500, "Internal server error")
   }
 }
 
