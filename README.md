@@ -10,6 +10,8 @@
 | `GET`    | `/api/estudiantes/asignatura/${ASIGNATURA}/${GRADO}` | Recupera los estudiantes según que cursan la asignatura en dicho grado |
 | `POST`   | `/api/estudiantes`                                   | Añade un estudiante a la colección.                                    |
 | `PATCH`  | `/api/estudiantes/${ID}`                             | Actualiza un estudiante.                                               |
+| `POST`   | `/api/profesores/crear-cuenta`                       | Crea una cuenta de profesor.                                           |
+| `POST`   | `/api/profesores/iniciar-sesion`                     | Maneja el inicio de sesión de un profesor.                             |
 
 ## Referencias
 
@@ -260,3 +262,59 @@ El atributo `group` es el grupo al que asiste el estudiante.
 El atributo `subjects` es la lista de materias que cursa el estudiante.
 
 El atributo `orientation` es la orientación que cursa el estudiante.
+
+### Crear cuenta de profesor
+
+```http
+POST /api/profesores/crear-cuenta
+```
+
+| Header         | Value              |
+| :------------- | :----------------- |
+| `Content-Type` | `application/json` |
+
+| Body Param | Value    | Description                       |
+| :--------- | :------- | :-------------------------------- |
+| `username` | `string` | **Requerido**. Nombre de usuario. |
+| `password` | `string` | **Requerido**. Contraseña.        |
+
+#### Response
+
+```js
+{
+  "_id": ObjectId,
+  "username": String,
+}
+```
+
+El atributo `_id` es el identificador definido por MongoDB.
+
+El atributo `username` es el nombre del usuario del profesor.
+
+### Iniciar sesion como profesor
+
+```http
+POST /api/profesores/iniciar-sesion
+```
+
+| Header         | Value              |
+| :------------- | :----------------- |
+| `Content-Type` | `application/json` |
+
+| Body Param | Value    | Description                       |
+| :--------- | :------- | :-------------------------------- |
+| `username` | `string` | **Requerido**. Nombre de usuario. |
+| `password` | `string` | **Requerido**. Contraseña.        |
+
+#### Response
+
+```js
+{
+  "_id": ObjectId,
+  "username": String,
+}
+```
+
+El atributo `_id` es el identificador definido por MongoDB.
+
+El atributo `username` es el nombre del usuario del profesor.
